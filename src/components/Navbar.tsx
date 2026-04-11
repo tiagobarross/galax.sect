@@ -1,34 +1,48 @@
 import { Logo } from "./logo"
-import {
-    NavigationMenu,
-    NavigationMenuItem,
-    NavigationMenuLink,
-    NavigationMenuList,
-} from "@/components/ui/navigation-menu"
 import { Button } from "./ui/button"
+import { MobileNav } from "./mobile-nav"
+import { ThemeToggleWrapper } from "./theme-toggle/theme-toggle-wrapper"
+import Link from "next/link"
 
 export function Navbar() {
     return (
-        <div className="w-full">
-            <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4 bg-black text-white">
+        <header className="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-white/10 bg-white/80 dark:bg-black/80 backdrop-blur-md transition-colors">
+            <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
                 <Logo />
 
-                <NavigationMenu>
-                    <NavigationMenuList>
-                        <NavigationMenuItem>
-                            <NavigationMenuLink>Home</NavigationMenuLink>
-                        </NavigationMenuItem>
-                        <NavigationMenuItem>
-                            <NavigationMenuLink>Serviços</NavigationMenuLink>
-                        </NavigationMenuItem>
-                        <NavigationMenuItem>
-                            <NavigationMenuLink>Contato</NavigationMenuLink>
-                        </NavigationMenuItem>
-                    </NavigationMenuList>
-                </NavigationMenu>
+                <nav className="hidden md:flex">
+                    <ul className="flex gap-1">
+                        <li>
+                            <Link href="/" className="rounded-lg px-4 py-2 text-sm font-medium text-gray-700 dark:text-white transition-colors hover:bg-gray-100 dark:hover:bg-white/10">
+                                Home
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="/dashboard" className="rounded-lg px-4 py-2 text-sm font-medium text-gray-700 dark:text-white transition-colors hover:bg-gray-100 dark:hover:bg-white/10">
+                                Dashboard
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="/about" className="rounded-lg px-4 py-2 text-sm font-medium text-gray-700 dark:text-white transition-colors hover:bg-gray-100 dark:hover:bg-white/10">
+                                Sobre
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="/contact" className="rounded-lg px-4 py-2 text-sm font-medium text-gray-700 dark:text-white transition-colors hover:bg-gray-100 dark:hover:bg-white/10">
+                                Contato
+                            </Link>
+                        </li>
+                    </ul>
+                </nav>
 
-                <Button className="bg-eletric-blue hover:bg-hover-eletric-blue cursor-pointer">Entrar</Button>
+                <div className="flex items-center gap-3">
+                    <ThemeToggleWrapper />
+                    <Button className="hidden bg-eletric-blue hover:bg-hover-eletric-blue md:inline-flex">
+                        Entrar
+                    </Button>
+                    <MobileNav />
+                </div>
             </div>
-        </div>
+        </header>
     )
 }
