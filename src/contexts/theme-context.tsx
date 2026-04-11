@@ -26,6 +26,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   };
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
     const stored = localStorage.getItem(STORAGE_KEY) as Theme | null;
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;

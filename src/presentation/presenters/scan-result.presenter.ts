@@ -24,15 +24,15 @@ export class ScanResultPresenter {
     return new Date(isoString).toLocaleString('pt-BR');
   }
 
-  private static mapVulnerability(vuln: any): VulnerabilityViewModel {
+  private static mapVulnerability(vuln: { id?: string; title?: string; description: string; recommendation: string; severity: string; evidence?: string; owasp?: string }): VulnerabilityViewModel {
     const severityConfig = this.getSeverityConfig(vuln.severity);
     
     return {
-      id: vuln.id,
-      title: vuln.title,
+      id: vuln.id || '',
+      title: vuln.title || 'Vulnerabilidade detectada',
       description: vuln.description,
       recommendation: vuln.recommendation,
-      severity: vuln.severity,
+      severity: vuln.severity as 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL',
       evidence: vuln.evidence,
       owasp: vuln.owasp,
       ...severityConfig,
@@ -66,7 +66,7 @@ export class ScanResultPresenter {
     return configs[severity as keyof typeof configs] || configs.LOW;
   }
 
-  private static calculateStats(vulnerabilities: any[]) {
+  private static calculateStats(vulnerabilities: { severity: string }[]) {
     return {
       criticalCount: vulnerabilities.filter(v => v.severity === 'CRITICAL').length,
       highCount: vulnerabilities.filter(v => v.severity === 'HIGH').length,

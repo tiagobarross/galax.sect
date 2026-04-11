@@ -33,20 +33,6 @@ export function AccessibilityPanel() {
   const [settings, setSettings] = useState<AccessibilitySettings>(defaultSettings);
   const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored) {
-      try {
-        const parsed = JSON.parse(stored);
-        setSettings(parsed);
-        applySettings(parsed);
-      } catch {
-        // Ignore parse errors
-      }
-    }
-  }, []);
-
   const applySettings = (newSettings: AccessibilitySettings) => {
     if (typeof document === 'undefined') return;
 
@@ -72,6 +58,21 @@ export function AccessibilityPanel() {
       root.removeAttribute('data-line-height');
     }
   };
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true);
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored) {
+      try {
+        const parsed = JSON.parse(stored);
+        setSettings(parsed);
+        applySettings(parsed);
+      } catch {
+        // Ignore parse errors
+      }
+    }
+  }, []);
 
   const updateSetting = <K extends keyof AccessibilitySettings>(
     key: K,

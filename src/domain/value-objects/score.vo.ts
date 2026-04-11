@@ -1,5 +1,4 @@
 import { Guard } from '@/shared/utils/guard.util';
-import { InvalidScoreError } from '@/shared/errors/domain.error';
 
 export class Score {
   private static readonly MIN_SCORE = 0;

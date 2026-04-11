@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Mail, MessageSquare, Code, Share2, Phone } from 'lucide-react';
+import { Mail, Code, Share2, Phone } from 'lucide-react';
 import Link from 'next/link';
 
 export default function ContactPage() {
