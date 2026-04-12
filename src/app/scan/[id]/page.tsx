@@ -6,9 +6,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { ScanResult, SeverityLevel } from '@/types/scan';
+import { ScanResult } from '@/types/scan';
+import { VulnerabilityDetailCard } from '@/components/vulnerability-detail-card';
 import { 
-  Shield, 
   AlertTriangle, 
   CheckCircle2, 
   XCircle, 
@@ -18,14 +18,7 @@ import {
   Lock,
   Info
 } from 'lucide-react';
-import { SEVERITY_TEXT_COLORS, SEVERITY_BG_COLORS } from '@/lib/constants';
 
-const severityIcons: Record<SeverityLevel, React.ReactNode> = {
-  CRITICAL: <XCircle className="h-5 w-5" />,
-  HIGH: <AlertTriangle className="h-5 w-5" />,
-  MEDIUM: <Info className="h-5 w-5" />,
-  LOW: <CheckCircle2 className="h-5 w-5" />,
-};
 
 export default function ScanResultPage() {
   const params = useParams();
@@ -195,51 +188,9 @@ export default function ScanResultPage() {
               </CardContent>
             </Card>
           ) : (
-            <div className="space-y-4">
+            <div className="space-y-6">
               {result.vulnerabilities.map((vuln) => (
-                <Card key={vuln.id} className="border-gray-200 dark:border-white/10 bg-white dark:bg-white/5">
-                  <CardHeader>
-                    <div className="flex flex-wrap items-start justify-between gap-4">
-                      <div className="flex items-start gap-3">
-                        <div className={`mt-1 flex h-10 w-10 items-center justify-center rounded-full ${SEVERITY_BG_COLORS[vuln.severity]}`}>
-                          <span className={SEVERITY_TEXT_COLORS[vuln.severity]}>
-                            {severityIcons[vuln.severity]}
-                          </span>
-                        </div>
-                        <div>
-                          <CardTitle className="text-lg text-gray-900 dark:text-white">{vuln.title}</CardTitle>
-                          <Badge variant={vuln.severity === 'CRITICAL' ? 'critical' : vuln.severity === 'HIGH' ? 'warning' : 'info'} className="mt-2">
-                            {vuln.severity}
-                          </Badge>
-                        </div>
-                      </div>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div>
-                      <h4 className="mb-1 text-sm font-semibold text-gray-700 dark:text-gray-300">Descrição</h4>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">{vuln.description}</p>
-                    </div>
-                    <div>
-                      <h4 className="mb-1 text-sm font-semibold text-gray-700 dark:text-gray-300">Recomendação</h4>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">{vuln.recommendation}</p>
-                    </div>
-                    {vuln.evidence && (
-                      <div>
-                        <h4 className="mb-1 text-sm font-semibold text-gray-700 dark:text-gray-300">Evidência</h4>
-                        <code className="block rounded bg-gray-100 dark:bg-black/50 p-2 text-xs text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-white/10">
-                          {vuln.evidence}
-                        </code>
-                      </div>
-                    )}
-                    {vuln.owasp && (
-                      <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-500">
-                        <Shield className="h-3 w-3" />
-                        <span>OWASP: {vuln.owasp}</span>
-                      </div>
-                    )}
-                  </CardContent>
-                </Card>
+                <VulnerabilityDetailCard key={vuln.id} vulnerability={vuln} />
               ))}
             </div>
           )}

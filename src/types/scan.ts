@@ -14,6 +14,57 @@ export type VulnerabilityType =
 
 export type ScanStatus = 'pending' | 'running' | 'completed' | 'failed';
 
+export type ImpactLevel = 'NONE' | 'LOW' | 'MEDIUM' | 'HIGH';
+export type ExploitComplexity = 'LOW' | 'MEDIUM' | 'HIGH';
+
+export interface CodeExample {
+  language: string;
+  label: string;
+  before?: string;
+  after: string;
+}
+
+export interface RealWorldCase {
+  company: string;
+  year: number;
+  summary: string;
+  link?: string;
+}
+
+export interface ExploitDetails {
+  howHackersExploit: string;
+  attackScenario: string;
+  exploitComplexity: ExploitComplexity;
+  requiredSkills: string[];
+  commonTools: string[];
+  exploitExample?: string;
+}
+
+export interface VulnerabilityImpact {
+  confidentiality: ImpactLevel;
+  integrity: ImpactLevel;
+  availability: ImpactLevel;
+  businessImpact: string;
+  dataAtRisk: string[];
+  potentialDamage: string;
+}
+
+export interface Remediation {
+  quickFix: string;
+  completeFixSteps: string[];
+  codeExamples: CodeExample[];
+  testingSteps: string[];
+  preventionTips: string[];
+}
+
+export interface VulnerabilityReferences {
+  cveIds?: string[];
+  owaspLinks: string[];
+  articles: string[];
+  videos?: string[];
+  realWorldCases?: RealWorldCase[];
+}
+
 export interface Vulnerability {
   id: string;
   type: VulnerabilityType;
@@ -25,6 +76,10 @@ export interface Vulnerability {
   cwe?: string;
   owasp?: string;
   cvss?: number;
+  exploitDetails?: ExploitDetails;
+  impact?: VulnerabilityImpact;
+  remediation?: Remediation;
+  references?: VulnerabilityReferences;
 }
 
 export interface SecurityHeader {

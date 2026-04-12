@@ -111,6 +111,28 @@ Sistema web que analisa sites (com permissão) e identifica vulnerabilidades, m�
 - [x] Instagram: https://www.instagram.com/tiagoo_barross/
 - [x] GitHub: https://github.com/tiagobarross
 
+#### 1.8 Sistema de Inteligência de Vulnerabilidades ✅
+- [x] Knowledge Base detalhada para cada tipo de vulnerabilidade
+- [x] Informações sobre como hackers exploram cada falha
+- [x] Cenários reais de ataque com exemplos práticos
+- [x] Matriz de impacto (CIA Triad: Confidencialidade, Integridade, Disponibilidade)
+- [x] Impacto detalhado no negócio (financeiro, reputacional, legal)
+- [x] Dados em risco identificados
+- [x] Ferramentas utilizadas por hackers
+- [x] Habilidades necessárias para exploração
+- [x] Exemplos de código de exploits (educacional)
+- [x] Passos completos de correção
+- [x] Exemplos de código (antes/depois)
+- [x] Múltiplas linguagens (Nginx, Apache, Node.js, React)
+- [x] Passos de teste da correção
+- [x] Dicas de prevenção
+- [x] Casos reais de empresas que sofreram ataques
+- [x] Referências OWASP, artigos técnicos, CVEs
+- [x] UI com sistema de abas (Visão Geral, Como Explorar, Impacto, Corrigir, Referências)
+- [x] Visualização de código com syntax highlighting
+- [x] Gráficos de impacto (barras de progresso)
+- [x] Badges de complexidade e CVSS score
+
 ---
 
 ### 📦 FASE 2: Crawler & Análise Avançada
