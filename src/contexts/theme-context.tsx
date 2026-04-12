@@ -67,7 +67,7 @@ export function useTheme() {
         setTheme: () => {},
       };
     }
-    throw new Error('useTheme must be used within a ThemeProvider');
+    throw new Error('useTheme deve ser usado dentro de um ThemeProvider');
   }
   return context;
 }

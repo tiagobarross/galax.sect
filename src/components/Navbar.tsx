@@ -14,12 +14,12 @@ export function Navbar() {
                     <ul className="flex gap-1">
                         <li>
                             <Link href="/" className="rounded-lg px-4 py-2 text-sm font-medium text-gray-700 dark:text-white transition-colors hover:bg-gray-100 dark:hover:bg-white/10">
-                                Home
+                                Início
                             </Link>
                         </li>
                         <li>
                             <Link href="/dashboard" className="rounded-lg px-4 py-2 text-sm font-medium text-gray-700 dark:text-white transition-colors hover:bg-gray-100 dark:hover:bg-white/10">
-                                Dashboard
+                                Painel
                             </Link>
                         </li>
                         <li>

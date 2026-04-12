@@ -15,7 +15,7 @@ export default function Home() {
           <div className="absolute inset-0 z-0">
             <img
               src="/blue_planet_background.png"
-              alt="Background"
+              alt=""
               className="h-full w-full object-cover opacity-20 dark:opacity-40"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/60 to-white dark:from-black/60 dark:via-black/40 dark:to-black" />
@@ -25,7 +25,7 @@ export default function Home() {
           <div className="relative z-10 mx-auto w-full max-w-5xl text-center">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-eletric-blue/30 bg-eletric-blue/10 px-4 py-2 text-sm font-medium text-eletric-blue">
               <Shield className="h-4 w-4" />
-              Web Vulnerability Scanner
+              Scanner de vulnerabilidades web
             </div>
 
             <h1 className="mb-6 text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl md:text-6xl lg:text-7xl">
@@ -42,7 +42,7 @@ export default function Home() {
             </div>
 
             <p className="mt-6 text-sm text-gray-500 dark:text-gray-400">
-              ✓ Análise gratuita · ✓ Relatório detalhado · ✓ Recomendações práticas
+              Análise gratuita · Relatório detalhado · Recomendações práticas
             </p>
           </div>
         </section>
@@ -125,7 +125,7 @@ export default function Home() {
                   <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-eletric-blue/20">
                     <Bell className="h-6 w-6 text-eletric-blue" />
                   </div>
-                  <CardTitle className="text-gray-900 dark:text-white">Histórico de Scans</CardTitle>
+                  <CardTitle className="text-gray-900 dark:text-white">Histórico de análises</CardTitle>
                   <CardDescription className="text-gray-600 dark:text-gray-400">
                     Acompanhe a evolução da segurança do seu site ao longo do tempo
                   </CardDescription>
@@ -160,7 +160,7 @@ export default function Home() {
           Desenvolvido por <a href="https://github.com/tiagobarross" target="_blank" rel="noopener noreferrer" className="text-eletric-blue hover:underline">Tiago Barros</a>
         </p>
         <p className="mt-2">
-          Feito com ❤️ para tornar a web mais segura
+          Feito para tornar a web mais segura
         </p>
       </footer>
     </div>

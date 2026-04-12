@@ -33,16 +33,16 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Galax.sect - Web Vulnerability Scanner",
+  title: "Galax.sect – Scanner de vulnerabilidades web",
   description:
     "Sistema inteligente de análise de vulnerabilidades web. Detecte riscos de segurança, más configurações e vulnerabilidades em segundos.",
   authors: [{ name: "Tiago Barros", url: "https://github.com/tiagobarross" }],
   keywords: [
-    "security",
-    "vulnerability scanner",
-    "web security",
+    "segurança",
+    "scanner de vulnerabilidades",
+    "segurança web",
     "OWASP",
-    "penetration testing",
+    "teste de penetração",
   ],
   applicationName: "Galax.sect",
   appleWebApp: {

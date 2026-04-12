@@ -17,7 +17,7 @@ export default function AboutPage() {
           <Card className="border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5">
             <CardContent className="p-8">
               <p className="mb-4 text-lg text-gray-700 dark:text-gray-300">
-                O <span className="font-semibold text-eletric-blue">Galax.sect</span> é um Web Vulnerability Scanner 
+                O <span className="font-semibold text-eletric-blue">Galax.sect</span> é um scanner de vulnerabilidades web
                 moderno desenvolvido para ajudar desenvolvedores, empresas e profissionais de segurança a identificar 
                 vulnerabilidades e más configurações em aplicações web.
               </p>

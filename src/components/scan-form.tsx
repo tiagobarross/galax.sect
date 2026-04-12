@@ -46,7 +46,7 @@ export function ScanForm({ onScanStart }: ScanFormProps) {
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.error || 'Erro ao realizar scan');
+        throw new Error(errorData.error || 'Erro ao realizar a análise');
       }
 
       const result: ScanResult = await response.json();
@@ -55,7 +55,7 @@ export function ScanForm({ onScanStart }: ScanFormProps) {
       
       router.push(`/scan/${result.id}`);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Erro ao iniciar scan. Tente novamente.');
+      setError(err instanceof Error ? err.message : 'Erro ao iniciar a análise. Tente novamente.');
     } finally {
       setIsLoading(false);
     }
@@ -67,7 +67,7 @@ export function ScanForm({ onScanStart }: ScanFormProps) {
         <div className="relative flex-1">
           <Input
             type="url"
-            placeholder="https://example.com"
+            placeholder="https://exemplo.com"
             value={url}
             onChange={(e) => {
               setUrl(e.target.value);

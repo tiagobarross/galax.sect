@@ -30,10 +30,10 @@ O ataque pode ser:
 • DOM-based XSS: Manipulação do DOM via JavaScript`,
     attackScenario: `CENÁRIO REAL DE ATAQUE:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🎯 Alvo: Loja online sem CSP
-🔴 Vetor: Campo de comentário de produto
-👤 Vítima: Qualquer usuário que visualizar o comentário
-💥 Resultado: Roubo de tokens de sessão, redirecionamento para phishing
+ Alvo: Loja online sem CSP
+ Vetor: Campo de comentário de produto
+ Vítima: Qualquer usuário que visualizar o comentário
+ Resultado: Roubo de tokens de sessão, redirecionamento para phishing
 
 O QUE O HACKER PODE FAZER:
 • Roubar credenciais de login em tempo real
@@ -117,19 +117,19 @@ O QUE O HACKER PODE FAZER:
     availability: 'LOW',
     businessImpact: `IMPACTO NO NEGÓCIO:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-💰 Financeiro:
+ Financeiro:
    • Perda de receita por abandono de clientes (67% não voltam)
    • Custos de resposta a incidentes (R$ 50.000 - R$ 500.000)
    • Multas LGPD: até 2% do faturamento (máx R$ 50 milhões)
    • Ações judiciais de clientes afetados
 
-🏢 Reputacional:
+ Reputacional:
    • Danos irreversíveis à marca
    • Perda de confiança do mercado
    • Queda no valor das ações (empresas públicas)
    • Dificuldade em atrair novos clientes
 
-⚖️ Legal/Regulatório:
+ Legal/Regulatório:
    • Violação da LGPD (Lei Geral de Proteção de Dados)
    • Notificação obrigatória à ANPD
    • Possível suspensão das atividades
@@ -165,7 +165,7 @@ O QUE O HACKER PODE FAZER:
       {
         language: 'nginx',
         label: 'Configuração Nginx',
-        before: `# ❌ SEM PROTEÇÃO - VULNERÁVEL
+        before: `#  SEM PROTEÇÃO - VULNERÁVEL
 server {
     listen 80;
     server_name example.com;
@@ -174,7 +174,7 @@ server {
         proxy_pass http://backend:3000;
     }
 }`,
-        after: `# ✅ COM PROTEÇÃO COMPLETA
+        after: `#  COM PROTEÇÃO COMPLETA
 server {
     listen 443 ssl http2;
     server_name example.com;
@@ -198,7 +198,7 @@ server {
       {
         language: 'node-express',
         label: 'Node.js + Express',
-        before: `// ❌ CÓDIGO VULNERÁVEL
+        before: `//  CÓDIGO VULNERÁVEL
 const express = require('express');
 const app = express();
 
@@ -213,7 +213,7 @@ app.get('/comment', (req, res) => {
   // PERIGOSO: Salva no banco sem validação
   db.save({ comment });
 });`,
-        after: `// ✅ CÓDIGO SEGURO
+        after: `//  CÓDIGO SEGURO
 const express = require('express');
 const helmet = require('helmet');
 const xss = require('xss');
@@ -283,14 +283,14 @@ app.post('/comment', (req, res) => {
       {
         language: 'react',
         label: 'React (Frontend)',
-        before: `// ❌ VULNERÁVEL - Usando dangerouslySetInnerHTML
+        before: `//  VULNERÁVEL - Usando dangerouslySetInnerHTML
 function Comment({ text }) {
   return (
     <div dangerouslySetInnerHTML={{ __html: text }} />
   );
 }
 
-// ❌ VULNERÁVEL - Manipulação direta do DOM
+//  VULNERÁVEL - Manipulação direta do DOM
 function SearchResults({ query }) {
   useEffect(() => {
     document.getElementById('results').innerHTML = 
@@ -299,7 +299,7 @@ function SearchResults({ query }) {
   
   return <div id="results" />;
 }`,
-        after: `// ✅ SEGURO - React escapa automaticamente
+        after: `//  SEGURO - React escapa automaticamente
 import DOMPurify from 'dompurify';
 
 function Comment({ text }) {
@@ -415,10 +415,10 @@ TÉCNICAS UTILIZADAS:
 • Drag & drop attacks para arrastar dados sensíveis`,
     attackScenario: `CENÁRIO REAL DE ATAQUE:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🎯 Alvo: Banco online sem X-Frame-Options
-🔴 Vetor: Site malicioso com iframe invisível
-👤 Vítima: Cliente do banco que acessa site malicioso
-💥 Resultado: Transferência bancária não autorizada
+ Alvo: Banco online sem X-Frame-Options
+ Vetor: Site malicioso com iframe invisível
+ Vítima: Cliente do banco que acessa site malicioso
+ Resultado: Transferência bancária não autorizada
 
 FLUXO DO ATAQUE:
 1. Vítima recebe email: "Ganhe iPhone grátis - Clique aqui!"
@@ -496,13 +496,13 @@ OUTROS CENÁRIOS:
   </style>
 </head>
 <body>
-  <h1>🎁 PARABÉNS! Você ganhou um iPhone 15 Pro!</h1>
+  <h1> PARABÉNS! Você ganhou um iPhone 15 Pro!</h1>
   <p>Clique no botão abaixo para resgatar seu prêmio:</p>
   
   <div class="iframe-container">
     <!-- Botão falso que o usuário VÊ -->
     <button class="fake-button">
-      🎉 RESGATAR MEU iPHONE GRÁTIS! 🎉
+       RESGATAR MEU iPHONE GRÁTIS! 
     </button>
     
     <!-- Iframe invisível com site real -->
@@ -553,19 +553,19 @@ OUTROS CENÁRIOS:
     availability: 'LOW',
     businessImpact: `IMPACTO NO NEGÓCIO:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-💰 Financeiro:
+ Financeiro:
    • Fraudes financeiras (transferências não autorizadas)
    • Custos de reembolso a clientes afetados
    • Multas por falha de segurança
    • Perda de clientes (25-40% não voltam)
 
-🏢 Reputacional:
+ Reputacional:
    • Perda de confiança dos usuários
    • Má publicidade em redes sociais
    • Danos à imagem da marca
    • Perda de vantagem competitiva
 
-⚖️ Legal:
+ Legal:
    • Responsabilidade por danos causados
    • Violação de regulamentações (LGPD, PCI-DSS)
    • Possíveis processos judiciais`,
@@ -595,7 +595,7 @@ OUTROS CENÁRIOS:
       {
         language: 'nginx',
         label: 'Configuração Nginx',
-        before: `# ❌ SEM PROTEÇÃO
+        before: `#  SEM PROTEÇÃO
 server {
     listen 443 ssl;
     server_name banco.com;
@@ -604,7 +604,7 @@ server {
         proxy_pass http://backend;
     }
 }`,
-        after: `# ✅ COM PROTEÇÃO COMPLETA
+        after: `#  COM PROTEÇÃO COMPLETA
 server {
     listen 443 ssl;
     server_name banco.com;
@@ -626,7 +626,7 @@ server {
       {
         language: 'node-express',
         label: 'Node.js + Express',
-        before: `// ❌ SEM PROTEÇÃO
+        before: `//  SEM PROTEÇÃO
 const express = require('express');
 const app = express();
 
@@ -634,7 +634,7 @@ app.get('/transfer', (req, res) => {
   // Vulnerável a clickjacking
   res.render('transfer');
 });`,
-        after: `// ✅ COM PROTEÇÃO
+        after: `//  COM PROTEÇÃO
 const express = require('express');
 const helmet = require('helmet');
 const app = express();
@@ -666,7 +666,7 @@ app.get('/transfer', (req, res) => {
       {
         language: 'javascript',
         label: 'Frame-Busting Script (Camada Adicional)',
-        after: `// ✅ JavaScript Frame-Busting
+        after: `//  JavaScript Frame-Busting
 // Adicione no <head> de páginas sensíveis
 
 <script>
@@ -774,10 +774,10 @@ TÉCNICAS DE ATAQUE:
 • Rogue Access Point: WiFi falso que imita rede legítima`,
     attackScenario: `CENÁRIO REAL DE ATAQUE:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🎯 Alvo: Site de e-commerce sem HTTPS
-🔴 Vetor: WiFi público de aeroporto
-👤 Vítima: Cliente fazendo compra online
-💥 Resultado: Roubo de dados de cartão de crédito
+ Alvo: Site de e-commerce sem HTTPS
+ Vetor: WiFi público de aeroporto
+ Vítima: Cliente fazendo compra online
+ Resultado: Roubo de dados de cartão de crédito
 
 FLUXO DO ATAQUE:
 1. Vítima conecta no "WiFi Grátis Aeroporto" (criado pelo hacker)
@@ -880,26 +880,26 @@ dnsspoof -i wlan0 -f hosts.txt
     availability: 'MEDIUM',
     businessImpact: `IMPACTO NO NEGÓCIO:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-💰 Financeiro:
+ Financeiro:
    • Fraudes com cartões roubados (chargeback)
    • Multas PCI-DSS: até US$ 500.000/mês
    • Multas LGPD: até R$ 50 milhões
    • Indenizações a clientes afetados
    • Perda de 80-90% dos clientes
 
-🏢 Reputacional:
+ Reputacional:
    • Danos IRREVERSÍVEIS à marca
    • Perda total de confiança do mercado
    • Impossibilidade de processar pagamentos online
    • Exclusão de marketplaces e parceiros
 
-⚖️ Legal:
+ Legal:
    • Violação de múltiplas regulamentações
    • Suspensão das operações online
    • Responsabilização criminal dos gestores
    • Processos judiciais massivos
 
-🔒 Técnico:
+ Técnico:
    • Penalização no Google (ranking menor)
    • Avisos de "Site não seguro" em navegadores
    • Bloqueio por antivírus e firewalls`,
@@ -939,7 +939,7 @@ dnsspoof -i wlan0 -f hosts.txt
       {
         language: 'nginx',
         label: 'Configuração Nginx Completa',
-        before: `# ❌ CONFIGURAÇÃO INSEGURA (HTTP)
+        before: `#  CONFIGURAÇÃO INSEGURA (HTTP)
 server {
     listen 80;
     server_name loja.com;
@@ -948,7 +948,7 @@ server {
         proxy_pass http://backend:3000;
     }
 }`,
-        after: `# ✅ CONFIGURAÇÃO SEGURA (HTTPS)
+        after: `#  CONFIGURAÇÃO SEGURA (HTTPS)
 # Redireciona HTTP → HTTPS
 server {
     listen 80;
@@ -999,12 +999,12 @@ server {
       {
         language: 'apache',
         label: 'Configuração Apache',
-        before: `# ❌ INSEGURO
+        before: `#  INSEGURO
 <VirtualHost *:80>
     ServerName loja.com
     DocumentRoot /var/www/html
 </VirtualHost>`,
-        after: `# ✅ SEGURO
+        after: `#  SEGURO
 # Redireciona HTTP → HTTPS
 <VirtualHost *:80>
     ServerName loja.com
@@ -1079,7 +1079,7 @@ curl -I https://loja.com | grep -i strict`,
       {
         language: 'node-express',
         label: 'Node.js - Force HTTPS',
-        after: `// ✅ FORÇAR HTTPS EM NODE.JS
+        after: `//  FORÇAR HTTPS EM NODE.JS
 const express = require('express');
 const helmet = require('helmet');
 const https = require('https');

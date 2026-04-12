@@ -54,15 +54,15 @@ export default function ScanResultPage() {
       <div className="flex min-h-screen items-center justify-center bg-white dark:bg-black px-4 transition-colors">
         <Card className="max-w-md border-gray-200 dark:border-white/10 bg-white dark:bg-white/5">
           <CardHeader>
-            <CardTitle className="text-gray-900 dark:text-white">Scan não encontrado</CardTitle>
+            <CardTitle className="text-gray-900 dark:text-white">Análise não encontrada</CardTitle>
             <CardDescription className="text-gray-600 dark:text-gray-400">
-              Não foi possível encontrar os resultados deste scan.
+              Não foi possível encontrar os resultados desta análise.
             </CardDescription>
           </CardHeader>
           <CardContent>
             <Button onClick={() => router.push('/')} className="w-full">
               <ArrowLeft className="mr-2 h-4 w-4" />
-              Voltar para Home
+              Voltar ao início
             </Button>
           </CardContent>
         </Card>
@@ -88,7 +88,7 @@ export default function ScanResultPage() {
         </Button>
 
         <div className="mb-8">
-          <h1 className="mb-2 text-3xl font-bold sm:text-4xl">Resultado do Scan</h1>
+          <h1 className="mb-2 text-3xl font-bold sm:text-4xl">Resultado da análise</h1>
           <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
             <div className="flex items-center gap-2">
               <Globe className="h-4 w-4" />
@@ -104,7 +104,7 @@ export default function ScanResultPage() {
         <div className="mb-8 grid gap-6 grid-cols-2 lg:grid-cols-4">
           <Card className="border-gray-200 dark:border-white/10 bg-white dark:bg-white/5">
             <CardHeader className="pb-3">
-              <CardDescription className="text-gray-600 dark:text-gray-400">Score Geral</CardDescription>
+              <CardDescription className="text-gray-600 dark:text-gray-400">Pontuação geral</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="flex items-baseline gap-2">
@@ -115,7 +115,7 @@ export default function ScanResultPage() {
                 variant={result.grade === 'A+' || result.grade === 'A' ? 'success' : result.grade === 'F' ? 'critical' : 'warning'}
                 className="mt-2"
               >
-                Grade {result.grade}
+                Nota {result.grade}
               </Badge>
             </CardContent>
           </Card>
@@ -226,7 +226,7 @@ export default function ScanResultPage() {
 
         <div className="flex flex-col gap-4 sm:flex-row">
           <Button onClick={() => router.push('/')} className="flex-1 p-4 bg-eletric-blue hover:bg-hover-eletric-blue">
-            Fazer Novo Scan
+            Nova análise
           </Button>
           <Button variant="outline" className="flex-1 p-4 border-white/10 hover:bg-white/5">
             Exportar Relatório

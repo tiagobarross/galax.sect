@@ -1,4 +1,5 @@
 import { Badge } from '@/components/ui/badge';
+import { getSeverityLabel } from '@/shared/utils/risk-scale-labels';
 
 interface SeverityBadgeProps {
   severity: 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
@@ -15,7 +16,7 @@ const severityVariants = {
 export function SeverityBadge({ severity, className }: SeverityBadgeProps) {
   return (
     <Badge variant={severityVariants[severity]} className={className}>
-      {severity}
+      {getSeverityLabel(severity)}
     </Badge>
   );
 }

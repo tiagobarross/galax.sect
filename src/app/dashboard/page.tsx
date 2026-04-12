@@ -29,7 +29,7 @@ export default function DashboardPage() {
             const scan = JSON.parse(localStorage.getItem(key) || '');
             allScans.push(scan);
           } catch (e) {
-            console.error('Error parsing scan:', e);
+            console.error('Erro ao interpretar análise:', e);
           }
         }
       }
@@ -57,14 +57,14 @@ export default function DashboardPage() {
     <div className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text-white transition-colors">
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <h1 className="mb-2 text-3xl font-bold sm:text-4xl">Dashboard</h1>
-          <p className="text-gray-600 dark:text-gray-400">Histórico e estatísticas dos seus scans</p>
+          <h1 className="mb-2 text-3xl font-bold sm:text-4xl">Painel</h1>
+          <p className="text-gray-600 dark:text-gray-400">Histórico e estatísticas das suas análises</p>
         </div>
 
         <div className="mb-8 grid gap-6 grid-cols-2 lg:grid-cols-4">
           <Card className="border-gray-200 dark:border-white/10 bg-white dark:bg-white/5">
             <CardHeader className="pb-3">
-              <CardDescription className="text-gray-600 dark:text-gray-400">Total de Scans</CardDescription>
+              <CardDescription className="text-gray-600 dark:text-gray-400">Total de análises</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="flex items-center gap-3">
@@ -78,7 +78,7 @@ export default function DashboardPage() {
 
           <Card className="border-gray-200 dark:border-white/10 bg-white dark:bg-white/5">
             <CardHeader className="pb-3">
-              <CardDescription className="text-gray-600 dark:text-gray-400">Score Médio</CardDescription>
+              <CardDescription className="text-gray-600 dark:text-gray-400">Pontuação média</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="flex items-center gap-3">
@@ -121,13 +121,13 @@ export default function DashboardPage() {
 
         <div>
           <div className="mb-4 flex items-center justify-between">
-            <h2 className="text-2xl font-bold">Histórico de Scans</h2>
+            <h2 className="text-2xl font-bold">Histórico de análises</h2>
             <Button 
               onClick={() => router.push('/')}
               className="bg-eletric-blue hover:bg-hover-eletric-blue"
             >
               <Search className="mr-2 h-4 w-4" />
-              Novo Scan
+              Nova análise
             </Button>
           </div>
 
@@ -137,7 +137,7 @@ export default function DashboardPage() {
                 <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gray-100 dark:bg-white/5">
                   <Search className="h-8 w-8 text-gray-400" />
                 </div>
-                <h3 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Nenhum scan realizado</h3>
+                <h3 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Nenhuma análise realizada</h3>
                 <p className="mb-6 text-sm text-gray-600 dark:text-gray-400">
                   Comece analisando um site para ver os resultados aqui
                 </p>
@@ -145,7 +145,7 @@ export default function DashboardPage() {
                   onClick={() => router.push('/')}
                   className="bg-eletric-blue hover:bg-hover-eletric-blue"
                 >
-                  Fazer Primeiro Scan
+                  Fazer primeira análise
                 </Button>
               </CardContent>
             </Card>
@@ -183,7 +183,7 @@ export default function DashboardPage() {
                           </div>
                           <div className="flex items-center gap-1">
                             <Shield className="h-4 w-4" />
-                            <span>Score: {scan.score}/100</span>
+                            <span>Pontuação: {scan.score}/100</span>
                           </div>
                           <div className="flex items-center gap-1">
                             <AlertTriangle className="h-4 w-4" />

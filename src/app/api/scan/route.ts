@@ -77,7 +77,7 @@ export async function POST(request: NextRequest) {
       
       if (fetchError instanceof Error && fetchError.name === 'AbortError') {
         return NextResponse.json(
-          { error: 'Timeout: O scan demorou muito tempo para ser concluído' },
+          { error: 'Tempo esgotado: a análise demorou demais para ser concluída' },
           { status: 408 }
         );
       }
@@ -86,11 +86,11 @@ export async function POST(request: NextRequest) {
     }
 
   } catch (error) {
-    console.error('Scan error:', error);
+    console.error('Erro na análise:', error);
     
     return NextResponse.json(
       { 
-        error: 'Erro ao realizar scan',
+        error: 'Erro ao realizar a análise',
         details: error instanceof Error ? error.message : 'Erro desconhecido'
       },
       { status: 500 }
@@ -101,7 +101,7 @@ export async function POST(request: NextRequest) {
 export async function GET() {
   return NextResponse.json(
     { 
-      message: 'Galax.sect Scanner API',
+      message: 'API Galax.sect',
       version: '1.0.0',
       endpoints: {
         scan: 'POST /api/scan',

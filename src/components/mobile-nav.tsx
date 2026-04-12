@@ -17,7 +17,7 @@ export function MobileNav() {
         size="icon"
         className="md:hidden"
         onClick={toggleMenu}
-        aria-label="Toggle menu"
+        aria-label="Abrir menu"
       >
         {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
       </Button>
@@ -35,7 +35,7 @@ export function MobileNav() {
                 variant="ghost"
                 size="icon"
                 onClick={toggleMenu}
-                aria-label="Close menu"
+                aria-label="Fechar menu"
               >
                 <X className="h-6 w-6" />
               </Button>
@@ -48,7 +48,7 @@ export function MobileNav() {
                   className="block rounded-lg px-4 py-3 text-base font-medium text-white transition-colors hover:bg-white/10"
                   onClick={toggleMenu}
                 >
-                  Home
+                  Início
                 </Link>
               </li>
               <li>
@@ -57,7 +57,7 @@ export function MobileNav() {
                   className="block rounded-lg px-4 py-3 text-base font-medium text-white transition-colors hover:bg-white/10"
                   onClick={toggleMenu}
                 >
-                  Dashboard
+                  Painel
                 </Link>
               </li>
               <li>

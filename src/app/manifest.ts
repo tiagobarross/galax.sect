@@ -6,7 +6,7 @@ const DESCRIPTION =
 export default function manifest(): MetadataRoute.Manifest {
   return {
     id: "/",
-    name: "Galax.sect - Web Vulnerability Scanner",
+    name: "Galax.sect – Scanner de vulnerabilidades web",
     short_name: "Galax.sect",
     description: DESCRIPTION,
     start_url: "/",
@@ -16,7 +16,7 @@ export default function manifest(): MetadataRoute.Manifest {
     background_color: "#030712",
     theme_color: "#05D3C3",
     lang: "pt-BR",
-    categories: ["security", "utilities"],
+    categories: ["segurança", "utilitários"],
     icons: [
       {
         src: "/icon-192.png",

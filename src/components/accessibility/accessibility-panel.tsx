@@ -9,7 +9,8 @@ import {
   Plus, 
   Type,
   AlignLeft,
-  FileText
+  FileText,
+  Zap,
 } from 'lucide-react';
 
 interface AccessibilitySettings {
@@ -186,9 +187,7 @@ export function AccessibilityPanel() {
                 <div className="space-y-2">
                   <label className="flex items-center justify-between p-3 rounded-lg border border-gray-200 dark:border-white/10 hover:bg-gray-50 dark:hover:bg-white/5 cursor-pointer transition-colors">
                     <div className="flex items-center gap-2">
-                      <div className="w-5 h-5 rounded bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center">
-                        <span className="text-xs">⚡</span>
-                      </div>
+                      <Zap className="h-5 w-5 text-eletric-blue" aria-hidden />
                       <span className="text-sm font-medium text-gray-900 dark:text-white">
                         Alto contraste
                       </span>
