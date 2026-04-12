@@ -6,7 +6,7 @@ import Link from "next/link"
 
 export function Navbar() {
     return (
-        <header className="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-white/10 bg-white/80 dark:bg-black/80 backdrop-blur-md transition-colors">
+        <header className="sticky top-0 z-50 w-full border-b border-gray-200 pt-[env(safe-area-inset-top)] dark:border-white/10 bg-white/80 dark:bg-black/80 backdrop-blur-md transition-colors">
             <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
                 <Logo />
 

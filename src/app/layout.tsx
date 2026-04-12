@@ -1,8 +1,9 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/contexts/theme-context";
 import { AccessibilityPanel } from "@/components/accessibility/accessibility-panel";
+import { PwaClient } from "@/components/pwa/pwa-shell";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -20,11 +21,42 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#030712" },
+  ],
+  colorScheme: "dark light",
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
+
 export const metadata: Metadata = {
   title: "Galax.sect - Web Vulnerability Scanner",
-  description: "Sistema inteligente de análise de vulnerabilidades web. Detecte riscos de segurança, más configurações e vulnerabilidades em segundos.",
+  description:
+    "Sistema inteligente de análise de vulnerabilidades web. Detecte riscos de segurança, más configurações e vulnerabilidades em segundos.",
   authors: [{ name: "Tiago Barros", url: "https://github.com/tiagobarross" }],
-  keywords: ["security", "vulnerability scanner", "web security", "OWASP", "penetration testing"],
+  keywords: [
+    "security",
+    "vulnerability scanner",
+    "web security",
+    "OWASP",
+    "penetration testing",
+  ],
+  applicationName: "Galax.sect",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Galax.sect",
+  },
+  icons: {
+    icon: [
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: "/icon-180.png",
+  },
 };
 
 export default function RootLayout({
@@ -40,6 +72,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <ThemeProvider>
+          <PwaClient />
           {children}
           <AccessibilityPanel />
         </ThemeProvider>
