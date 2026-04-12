@@ -101,7 +101,7 @@ export default function ScanResultPage() {
           </div>
         </div>
 
-        <div className="mb-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mb-8 grid gap-6 grid-cols-2 lg:grid-cols-4">
           <Card className="border-gray-200 dark:border-white/10 bg-white dark:bg-white/5">
             <CardHeader className="pb-3">
               <CardDescription className="text-gray-600 dark:text-gray-400">Score Geral</CardDescription>
@@ -225,10 +225,10 @@ export default function ScanResultPage() {
         </div>
 
         <div className="flex flex-col gap-4 sm:flex-row">
-          <Button onClick={() => router.push('/')} className="flex-1 bg-eletric-blue hover:bg-hover-eletric-blue">
+          <Button onClick={() => router.push('/')} className="flex-1 p-4 bg-eletric-blue hover:bg-hover-eletric-blue">
             Fazer Novo Scan
           </Button>
-          <Button variant="outline" className="flex-1 border-white/10 hover:bg-white/5">
+          <Button variant="outline" className="flex-1 p-4 border-white/10 hover:bg-white/5">
             Exportar Relatório
           </Button>
         </div>

@@ -61,7 +61,7 @@ export default function DashboardPage() {
           <p className="text-gray-600 dark:text-gray-400">Histórico e estatísticas dos seus scans</p>
         </div>
 
-        <div className="mb-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mb-8 grid gap-6 grid-cols-2 lg:grid-cols-4">
           <Card className="border-gray-200 dark:border-white/10 bg-white dark:bg-white/5">
             <CardHeader className="pb-3">
               <CardDescription className="text-gray-600 dark:text-gray-400">Total de Scans</CardDescription>
