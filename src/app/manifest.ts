@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { PWA_MANIFEST_ICONS } from "@/lib/pwa-icons";
 
 const DESCRIPTION =
   "Sistema inteligente de análise de vulnerabilidades web. Detecte riscos de segurança, más configurações e vulnerabilidades em segundos.";
@@ -17,25 +18,6 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: "#05D3C3",
     lang: "pt-BR",
     categories: ["segurança", "utilitários"],
-    icons: [
-      {
-        src: "/icon-192.png",
-        sizes: "192x192",
-        type: "image/png",
-        purpose: "any",
-      },
-      {
-        src: "/icon-512.png",
-        sizes: "512x512",
-        type: "image/png",
-        purpose: "any",
-      },
-      {
-        src: "/icon-maskable-512.png",
-        sizes: "512x512",
-        type: "image/png",
-        purpose: "maskable",
-      },
-    ],
+    icons: PWA_MANIFEST_ICONS,
   };
 }

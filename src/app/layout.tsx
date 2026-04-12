@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { pwaIconsToMetadataIcons } from "@/lib/pwa-icons";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/contexts/theme-context";
@@ -50,13 +51,7 @@ export const metadata: Metadata = {
     statusBarStyle: "default",
     title: "Galax.sect",
   },
-  icons: {
-    icon: [
-      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
-      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
-    ],
-    apple: "/icon-180.png",
-  },
+  icons: pwaIconsToMetadataIcons(),
 };
 
 export default function RootLayout({
