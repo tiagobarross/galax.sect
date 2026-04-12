@@ -1,8 +1,26 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
-import { isIosDevice, isStandaloneDisplay } from "@/lib/pwa/platform";
+import { useCallback, useEffect, useState, useSyncExternalStore } from "react";
+import {
+  isIosDevice,
+  isStandaloneDisplay,
+  MOBILE_VIEWPORT_MEDIA_QUERY,
+} from "@/lib/pwa/platform";
 import { useIsClient } from "@/hooks/use-is-client";
+
+function subscribeMobileViewport(onStoreChange: () => void): () => void {
+  const mq = globalThis.window.matchMedia(MOBILE_VIEWPORT_MEDIA_QUERY);
+  mq.addEventListener("change", onStoreChange);
+  return () => mq.removeEventListener("change", onStoreChange);
+}
+
+function getMobileViewportSnapshot(): boolean {
+  return globalThis.window.matchMedia(MOBILE_VIEWPORT_MEDIA_QUERY).matches;
+}
+
+function getServerMobileViewportSnapshot(): boolean {
+  return false;
+}
 
 type BeforeInstallPromptEvent = Event & {
   prompt: () => Promise<void>;
@@ -11,6 +29,11 @@ type BeforeInstallPromptEvent = Event & {
 
 export function usePwaInstall() {
   const isClient = useIsClient();
+  const isMobileViewport = useSyncExternalStore(
+    subscribeMobileViewport,
+    getMobileViewportSnapshot,
+    getServerMobileViewportSnapshot,
+  );
   const [deferred, setDeferred] = useState<BeforeInstallPromptEvent | null>(
     null,
   );
@@ -29,6 +52,7 @@ export function usePwaInstall() {
   const standalone = isClient && isStandaloneDisplay();
   const canShow =
     isClient &&
+    isMobileViewport &&
     !standalone &&
     !dismissed &&
     (deferred !== null || isIosDevice());

@@ -1,3 +1,14 @@
+/** Touch-first, narrow viewports — phones (incl. landscape) and small tablets; not desktop. */
+export const MOBILE_VIEWPORT_MEDIA_QUERY =
+  "(max-width: 1023px) and (pointer: coarse)";
+
+export function isMobileViewport(): boolean {
+  if (typeof globalThis.window === "undefined") {
+    return false;
+  }
+  return globalThis.window.matchMedia(MOBILE_VIEWPORT_MEDIA_QUERY).matches;
+}
+
 export function isStandaloneDisplay(): boolean {
   if (typeof globalThis.window === "undefined") {
     return false;
