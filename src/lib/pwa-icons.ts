@@ -29,17 +29,26 @@ const APPLE_TOUCH_ICON = {
   type: "image/png",
 } as const;
 
+const FAVICON_ICON = {
+  url: "/logo.svg",
+  type: "image/svg+xml",
+} as const;
+
 export function pwaIconsToMetadataIcons(): NonNullable<Metadata["icons"]> {
   const standardIcons = PWA_MANIFEST_ICONS.filter(
     (entry) => entry.purpose === "any"
   );
 
   return {
-    icon: standardIcons.map((entry) => ({
-      url: entry.src,
-      sizes: entry.sizes,
-      type: entry.type,
-    })),
+    icon: [
+      FAVICON_ICON,
+      ...standardIcons.map((entry) => ({
+        url: entry.src,
+        sizes: entry.sizes,
+        type: entry.type,
+      })),
+    ],
+    shortcut: FAVICON_ICON.url,
     apple: APPLE_TOUCH_ICON,
   };
 }
